@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220" id="theme-color">
+  <meta name="description" content="Learn what Linux is: operating systems, the kernel, GNU tools, distributions and open-source software.">
+  <title>TuxMate | What Linux Is</title>
+  <link rel="icon" type="image/png" href="assets/tux1-removebg-preview.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/theme.js"></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/search.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <div class="nav__main">
+        <a class="nav__brand" href="index.html" aria-label="TuxMate home">
+          <span class="nav__logo-frame">
+            <img class="nav__logo" src="assets/tux1-removebg-preview.png" alt="" width="48" height="48">
+          </span>
+          <span class="nav__brand-text">
+            <span class="nav__wordmark">TuxMate</span>
+            <span class="nav__tagline">Linux, one quest at a time</span>
+          </span>
+        </a>
+
+        <ul class="nav__list" id="primary-menu">
+          <li><a class="nav__link" href="home.html">Home</a></li>
+          <li><a class="nav__link" href="learn.html">Learn</a></li>
+          <li><a class="nav__link" href="playground.html">Practice</a></li>
+          <li><a class="nav__link" href="quests.html">Quests</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__tools">
+        <button class="icon-btn" type="button" id="search-toggle" aria-label="Search TuxMate" aria-expanded="false" aria-controls="site-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.5-3.5"></path>
+          </svg>
+        </button>
+        <button class="icon-btn theme-toggle" type="button" id="theme-toggle" aria-label="Switch to light mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5z"></path>
+          </svg>
+        </button>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation menu">
+          <span class="nav__toggle-box" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="nav__toggle-label">Menu</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="linux-title">
+      <div class="container page-hero__inner">
+        <p class="eyebrow">Linux Foundations</p>
+        <h1 id="linux-title">Linux is more than a penguin.</h1>
+        <p class="page-hero__lede">To use Linux well, it helps to know what is underneath: an operating system, a kernel, a collection of tools and a community that shares the source code.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <ul class="topic-nav" aria-label="Lesson navigation">
+        <li class="topic-nav__label">Course map</li>
+        <li><a href="linux.html" aria-current="page">Linux</a></li>
+        <li><a href="distros.html">Distributions</a></li>
+        <li><a href="installation.html">Installation</a></li>
+        <li><a href="terminal.html">Terminal</a></li>
+        <li><a href="package-manager.html">Packages</a></li>
+        <li><a href="bash.html">Bash</a></li>
+        <li><a href="playground.html">Playground</a></li>
+        <li><a href="quests.html">Quests</a></li>
+      </ul>
+    </div>
+
+    <section class="page-section" aria-labelledby="os-title">
+      <div class="container lesson-article">
+        <p class="lesson-article__intro">Linux is often described as one thing, but it is really a set of layers that work together. Each layer has a clear job.</p>
+
+        <article>
+          <h2 id="os-title">An operating system manages the machine</h2>
+          <p>An operating system, or OS, sits between your programs and your hardware. When a browser saves a download, the OS finds space on the disk, remembers the file name and decides which program may read it. When several apps run at once, the OS shares processor time and memory between them.</p>
+          <p>Familiar desktop operating systems include Windows, macOS and Linux distributions. They all solve the same basic problem: giving programs a safe, organised way to use the computer.</p>
+        </article>
+
+        <div class="lesson-columns">
+          <article class="info-panel">
+            <p class="info-panel__kicker">Kernel space</p>
+            <h3>The privileged core</h3>
+            <p>The kernel runs with full access to the CPU, memory and devices. Normal programs cannot simply reach into that space; they ask the kernel through defined requests.</p>
+          </article>
+          <article class="info-panel">
+            <p class="info-panel__kicker">User space</p>
+            <h3>Everything you launch</h3>
+            <p>Your editor, browser and shell all live in user space. They are separate programs that rely on the kernel for files, processes and device access.</p>
+          </article>
+        </div>
+
+        <article>
+          <h2>The kernel is the core</h2>
+          <p>Linux, strictly speaking, is a kernel: the central program that starts the system and mediates access to hardware. It handles processes, memory, filesystems and network connections. The original Linux kernel project began in 1991 and grew through contributions from programmers around the world.</p>
+          <p>A kernel alone is not a complete desktop. It needs utilities, libraries, configuration and applications before a person can log in and work.</p>
+        </article>
+
+        <article>
+          <h2>GNU tools make the system usable</h2>
+          <p>The GNU project created many of the programs that people use every day on Linux systems: a shell, a compiler, text tools and small utilities such as <code>ls</code> and <code>cp</code>. A distribution combines the Linux kernel with these GNU components and other software.</p>
+          <p>This is why you will sometimes see the name <strong>GNU/Linux</strong>. It recognises that both the kernel and the wider set of tools matter.</p>
+        </article>
+
+        <article>
+          <h2>A distribution packages the whole experience</h2>
+          <p>A Linux distribution, or distro, is a complete package: kernel, system libraries, desktop environment, package manager and default applications. Ubuntu, Debian, Arch Linux and Linux Mint are all distributions built around the Linux kernel.</p>
+          <p>Because distributions choose their own defaults, they feel different even though the underlying ideas are shared. Compare them in <a href="distros.html">Choosing a distribution</a>.</p>
+        </article>
+
+        <article>
+          <h2>Open source is about access to the source</h2>
+          <p>Linux is free and open-source software. Its source code is published, and its licence allows people to study, modify and share it. That openness lets students read real code, lets companies adapt it and lets communities fix problems together.</p>
+          <p>&ldquo;Open source&rdquo; does not only mean &ldquo;no price&rdquo;. The key point is that the source is available and the licence protects the freedom to use and improve it.</p>
+        </article>
+
+        <p class="lesson-note">Ready to see these ideas in action? The next lesson explains how the <a href="terminal.html">terminal</a> gives you direct access to the programs that manage files and processes.</p>
+      </div>
+    </section>
+
+    <section class="page-section section--lessons" aria-labelledby="linux-next-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">Continue the path</p>
+          <h2 id="linux-next-title">Pick your next stop</h2>
+        </div>
+        <div class="panel-grid">
+          <article class="info-panel">
+            <p class="info-panel__kicker">Next lesson</p>
+            <h3><a href="distros.html">Meet the distributions</a></h3>
+            <p>See how Ubuntu, Debian, Arch and Mint make different choices for different users.</p>
+          </article>
+          <article class="info-panel">
+            <p class="info-panel__kicker">Hands on</p>
+            <h3><a href="terminal.html">Enter the terminal</a></h3>
+            <p>Learn the vocabulary behind the prompt before trying commands in the simulator.</p>
+          </article>
+          <article class="info-panel">
+            <p class="info-panel__kicker">Check yourself</p>
+            <h3><a href="quests.html">Open the quest log</a></h3>
+            <p>Mark a quest complete once you can explain kernel, distribution and GNU tools.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="footer__wordmark" href="index.html">
+            <span class="footer__mark" aria-hidden="true"></span>
+            TuxMate
+          </a>
+          <p>TuxMate makes the first steps into Linux feel like an adventure &mdash; one command, one lesson, one quest at a time.</p>
+        </div>
+
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <h2 class="footer__heading">Explore</h2>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="playground.html">Practice</a></li>
+            <li><a href="quests.html">Quests</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__project">
+          <h2 class="footer__heading">Project</h2>
+          <ul class="footer__info">
+            <li><span>Course</span> Introduction to ICT</li>
+            <li><span>Team</span> Battler, Parri &amp; Mani</li>
+            <li><span>Built with</span> HTML, CSS &amp; vanilla JS</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span id="copyright-year">2026</span> TuxMate. A semester project for Introduction to ICT.</p>
+        <p>No accounts. No tracking. Progress stays on your device.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

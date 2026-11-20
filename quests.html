@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220" id="theme-color">
+  <meta name="description" content="Complete TuxMate quests, earn local XP and unlock badges as you learn Linux, the terminal, packages and Bash.">
+  <title>TuxMate | Quests</title>
+  <link rel="icon" type="image/png" href="assets/tux1-removebg-preview.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/theme.js"></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/quests.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <div class="nav__main">
+        <a class="nav__brand" href="index.html" aria-label="TuxMate home">
+          <span class="nav__logo-frame">
+            <img class="nav__logo" src="assets/tux1-removebg-preview.png" alt="" width="48" height="48">
+          </span>
+          <span class="nav__brand-text">
+            <span class="nav__wordmark">TuxMate</span>
+            <span class="nav__tagline">Linux, one quest at a time</span>
+          </span>
+        </a>
+
+        <ul class="nav__list" id="primary-menu">
+          <li><a class="nav__link" href="home.html">Home</a></li>
+          <li><a class="nav__link" href="learn.html">Learn</a></li>
+          <li><a class="nav__link" href="playground.html">Practice</a></li>
+          <li><a class="nav__link" href="quests.html" aria-current="page">Quests</a></li>
+          <li><a class="nav__link" href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__tools">
+        <button class="icon-btn" type="button" id="search-toggle" aria-label="Search TuxMate" aria-expanded="false" aria-controls="site-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.5-3.5"></path>
+          </svg>
+        </button>
+        <button class="icon-btn theme-toggle" type="button" id="theme-toggle" aria-label="Switch to light mode" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5z"></path>
+          </svg>
+        </button>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Open navigation menu">
+          <span class="nav__toggle-box" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="nav__toggle-label">Menu</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="quests-title">
+      <div class="container page-hero__inner">
+        <p class="eyebrow">Quest log</p>
+        <h1 id="quests-title">Prove it, one quest at a time.</h1>
+        <p class="page-hero__lede">Each quest asks you to explain an idea from the lessons. Mark it complete when you can answer without looking; your XP and badges are saved only in this browser.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <ul class="topic-nav" aria-label="Lesson navigation">
+        <li class="topic-nav__label">Course map</li>
+        <li><a href="linux.html">Linux</a></li>
+        <li><a href="distros.html">Distributions</a></li>
+        <li><a href="installation.html">Installation</a></li>
+        <li><a href="terminal.html">Terminal</a></li>
+        <li><a href="package-manager.html">Packages</a></li>
+        <li><a href="bash.html">Bash</a></li>
+        <li><a href="playground.html">Playground</a></li>
+        <li><a href="quests.html" aria-current="page">Quests</a></li>
+      </ul>
+    </div>
+
+    <section class="page-section" aria-labelledby="quest-board-title">
+      <div class="container quest-board">
+        <div class="section__header">
+          <p class="eyebrow">Active challenges</p>
+          <h2 id="quest-board-title">Four checks on your knowledge</h2>
+          <p class="section__lede">These are self-check quests. They measure whether you can explain a concept, not whether you can memorise a command by heart.</p>
+        </div>
+
+        <div class="quest-summary">
+          <div class="quest-summary__text">
+            <h2>Your expedition progress</h2>
+            <p>Mark a quest after you can teach the answer to a friend. You can unmark it at any time.</p>
+          </div>
+          <div class="quest-summary__meter">
+            <progress id="quest-progress" max="4" value="0">0 of 4 complete</progress>
+            <output id="quest-progress-label" for="quest-progress" aria-live="polite">0 of 4 complete</output>
+            <strong class="chip chip--yellow" id="quest-xp">0 XP</strong>
+            <button class="btn btn--secondary" type="button" id="reset-quests">Reset progress</button>
+          </div>
+        </div>
+
+        <div class="quest-grid">
+          <article class="quest-card" data-quest-card>
+            <div class="quest-card__head">
+              <h3>1. Read the prompt</h3>
+              <span class="chip chip--muted"><span data-quest-status>Open</span></span>
+            </div>
+            <p><strong>Challenge:</strong> Explain the difference between a terminal and a shell, then say what <code>pwd</code> reports.</p>
+            <p><strong>Reward:</strong> 50 XP and the Terminal Initiate badge.</p>
+            <label class="quest-card__check">
+              <input type="checkbox" data-quest="first-command">
+              I can explain this answer.
+            </label>
+            <p><a href="terminal.html">Review terminal basics</a></p>
+          </article>
+
+          <article class="quest-card" data-quest-card>
+            <div class="quest-card__head">
+              <h3>2. Find your place</h3>
+              <span class="chip chip--muted"><span data-quest-status>Open</span></span>
+            </div>
+            <p><strong>Challenge:</strong> In <code>/home/tux/projects</code>, name the parent directory and explain how an absolute path differs from a relative one.</p>
+            <p><strong>Reward:</strong> 50 XP and the Path Finder badge.</p>
+            <label class="quest-card__check">
+              <input type="checkbox" data-quest="filesystem">
+              I can explain this answer.
+            </label>
+            <p><a href="terminal.html">Review the filesystem</a></p>
+          </article>
+
+          <article class="quest-card" data-quest-card>
+            <div class="quest-card__head">
+              <h3>3. Track a dependency</h3>
+              <span class="chip chip--muted"><span data-quest-status>Open</span></span>
+            </div>
+            <p><strong>Challenge:</strong> Describe what a repository contains, what a dependency is and why <code>apt update</code> is not the same as <code>apt upgrade</code>.</p>
+            <p><strong>Reward:</strong> 50 XP and the Package Pilot badge.</p>
+            <label class="quest-card__check">
+              <input type="checkbox" data-quest="packages">
+              I can explain this answer.
+            </label>
+            <p><a href="package-manager.html">Review package managers</a></p>
+          </article>
+
+          <article class="quest-card" data-quest-card>
+            <div class="quest-card__head">
+              <h3>4. Build a script map</h3>
+              <span class="chip chip--muted"><span data-quest-status>Open</span></span>
+            </div>
+            <p><strong>Challenge:</strong> Point to the shebang, a variable, an <code>if</code>, a <code>for</code> loop and a function in a Bash script, and say what each one does.</p>
+            <p><strong>Reward:</strong> 50 XP and the Script Sprout badge.</p>
+            <label class="quest-card__check">
+              <input type="checkbox" data-quest="first-script">
+              I can explain this answer.
+            </label>
+            <p><a href="bash.html">Review Bash scripting</a></p>
+          </article>
+        </div>
+
+        <aside class="info-panel" aria-labelledby="quest-local-title">
+          <p class="info-panel__kicker">Local progress</p>
+          <h2 id="quest-local-title">No account, no server</h2>
+          <p>Your checkbox choices are stored with <code>localStorage</code> on this device only. Clearing site data or using another browser will start a fresh quest log.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page-section section--lessons" aria-labelledby="badges-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">Achievements</p>
+          <h2 id="badges-title">Badges you can unlock</h2>
+          <p class="section__lede">Each badge appears when its matching quest is complete. The final badge needs all four quests.</p>
+        </div>
+
+        <div class="badge-grid">
+          <div class="badge" data-badge="terminal-initiate">
+            <strong>Terminal Initiate</strong>
+            <span data-badge-status>Locked</span>
+          </div>
+          <div class="badge" data-badge="path-finder">
+            <strong>Path Finder</strong>
+            <span data-badge-status>Locked</span>
+          </div>
+          <div class="badge" data-badge="package-pilot">
+            <strong>Package Pilot</strong>
+            <span data-badge-status>Locked</span>
+          </div>
+          <div class="badge" data-badge="script-sprout">
+            <strong>Script Sprout</strong>
+            <span data-badge-status>Locked</span>
+          </div>
+          <div class="badge" data-badge="quest-master">
+            <strong>Quest Master</strong>
+            <span data-badge-status>Locked</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="footer__wordmark" href="index.html">
+            <span class="footer__mark" aria-hidden="true"></span>
+            TuxMate
+          </a>
+          <p>TuxMate makes the first steps into Linux feel like an adventure &mdash; one command, one lesson, one quest at a time.</p>
+        </div>
+
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <h2 class="footer__heading">Explore</h2>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="playground.html">Practice</a></li>
+            <li><a href="quests.html">Quests</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__project">
+          <h2 class="footer__heading">Project</h2>
+          <ul class="footer__info">
+            <li><span>Course</span> Introduction to ICT</li>
+            <li><span>Team</span> Battler, Parri &amp; Mani</li>
+            <li><span>Built with</span> HTML, CSS &amp; vanilla JS</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span id="copyright-year">2026</span> TuxMate. A semester project for Introduction to ICT.</p>
+        <p>No accounts. No tracking. Progress stays on your device.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
