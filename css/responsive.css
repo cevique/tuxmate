@@ -42,7 +42,8 @@
   .lesson-grid,
   .feature-grid,
   .panel-grid,
-  .dashboard-grid {
+  .dashboard-grid,
+  .next-grid {
     grid-template-columns: 1fr;
   }
 

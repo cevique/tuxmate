@@ -928,3 +928,26 @@ code {
 .notice strong {
   color: var(--color-heading);
 }
+
+/* Light mode corrections for elements that normally sit on a dark surface. */
+:root[data-theme="light"] .hero__perks {
+  border-color: rgba(13, 23, 42, 0.3);
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 3px 3px 0 rgba(15, 30, 60, 0.18);
+  color: var(--color-heading);
+  text-shadow: none;
+}
+
+:root[data-theme="light"] .chip--muted {
+  border-color: var(--color-border-strong);
+  background-color: rgba(13, 23, 42, 0.05);
+  color: var(--color-text-muted);
+}
+
+:root[data-theme="light"] .site-header {
+  box-shadow: 0 4px 0 rgba(15, 30, 60, 0.12);
+}
+
+:root[data-theme="light"] .eyebrow--boxed {
+  box-shadow: 3px 3px 0 rgba(15, 30, 60, 0.18);
+}
