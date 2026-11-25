@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b1220" id="theme-color">
-  <meta name="description" content="Compare Ubuntu, Debian, Arch Linux and Linux Mint, their package tools, release styles and intended audiences.">
+  <meta name="description" content="Compare Ubuntu, Linux Mint, Debian, Fedora and Arch Linux, their package tools, release styles, subflavours and intended audiences.">
   <title>TuxMate | Choosing a Distribution</title>
   <link rel="icon" type="image/png" href="assets/tux1-removebg-preview.png">
   <link rel="stylesheet" href="css/style.css">
@@ -93,7 +93,7 @@
 
     <section class="page-section" aria-labelledby="compare-title">
       <div class="container lesson-article">
-        <p class="lesson-article__intro">The four distributions below are popular for different reasons. None of them is &ldquo;the best&rdquo; in every situation; each makes trade-offs.</p>
+        <p class="lesson-article__intro">The five distributions below are popular for different reasons. None of them is &ldquo;the best&rdquo; in every situation; each makes trade-offs.</p>
 
         <div class="table-wrap">
           <table class="compare-table">
@@ -114,22 +114,28 @@
                 <td>Polished beginner experience, large community and strong hardware support.</td>
               </tr>
               <tr>
+                <th scope="row">Linux Mint</th>
+                <td>Ubuntu, or Debian for LMDE</td>
+                <td>APT with .deb packages</td>
+                <td>Familiar desktop layout and a gentle first experience for Windows switchers.</td>
+              </tr>
+              <tr>
                 <th scope="row">Debian</th>
                 <td>Independent</td>
                 <td>APT with .deb packages</td>
                 <td>Stable releases, careful testing and a dependable base for servers and desktops.</td>
               </tr>
               <tr>
+                <th scope="row">Fedora</th>
+                <td>Independent</td>
+                <td>DNF with RPM packages</td>
+                <td>Regular releases with current software, a strong desktop focus and open development.</td>
+              </tr>
+              <tr>
                 <th scope="row">Arch Linux</th>
                 <td>Independent</td>
                 <td>pacman</td>
                 <td>Rolling updates, minimal starting point and a hands-on learning curve.</td>
-              </tr>
-              <tr>
-                <th scope="row">Linux Mint</th>
-                <td>Ubuntu, or Debian for LMDE</td>
-                <td>APT with .deb packages</td>
-                <td>Familiar desktop layout and a gentle first experience for Windows switchers.</td>
               </tr>
             </tbody>
           </table>
@@ -139,24 +145,183 @@
           <h2>Ubuntu: the common starting point</h2>
           <p>Ubuntu is built on Debian and aims to make Linux approachable. Its installer, desktop defaults and documentation are designed for people who want a working system without assembling every piece themselves. It is widely used on laptops, desktops and servers.</p>
           <p>Because so many tutorials mention Ubuntu, it is easy to find help. The trade-off is that Ubuntu adds its own choices on top of Debian, including release schedules and default software.</p>
-        </article>
-
-        <article>
-          <h2>Debian: steady and conservative</h2>
-          <p>Debian is a long-running community distribution known for careful releases. Its stable branch favours reliability over having the newest version of every program. That makes it a strong choice for a machine that must keep working predictably.</p>
-          <p>Debian is also the base for many other distributions, including Ubuntu. If you want to understand where a lot of Linux packaging practice comes from, Debian is a useful reference.</p>
-        </article>
-
-        <article>
-          <h2>Arch Linux: build it yourself</h2>
-          <p>Arch Linux starts small and expects you to choose and configure the pieces you want. It uses a rolling release model, so software arrives continuously instead of in large periodic upgrades. The Arch Wiki is a well-known learning resource.</p>
-          <p>Arch is not the easiest first install, but it teaches how a Linux system fits together. Choose it when learning by configuration is the goal, not when you need a machine working in ten minutes.</p>
+          <div class="table-wrap">
+            <table class="compare-table">
+              <caption>Ubuntu flavours and what they change</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Flavour</th>
+                  <th scope="col">What it offers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Kubuntu</th>
+                  <td>Uses the KDE Plasma desktop instead of GNOME.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Xubuntu</th>
+                  <td>Uses the lighter Xfce desktop.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Lubuntu</th>
+                  <td>Uses LXQt and targets older or low-power machines.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ubuntu MATE</th>
+                  <td>Uses the MATE desktop with a traditional menu layout.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ubuntu Studio</th>
+                  <td>Ships with tools and settings for audio, video and graphics work.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </article>
 
         <article>
           <h2>Linux Mint: familiar by design</h2>
           <p>Linux Mint focuses on a comfortable desktop. Its main edition follows Ubuntu, while LMDE follows Debian. The layout is intentionally familiar to people coming from Windows, and the default applications cover common desktop tasks.</p>
           <p>Mint is a good match for a first Linux desktop, especially when the priority is a calm transition rather than learning every internal detail immediately.</p>
+          <div class="table-wrap">
+            <table class="compare-table">
+              <caption>Linux Mint editions and their base</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Edition</th>
+                  <th scope="col">What it offers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Cinnamon Edition</th>
+                  <td>The main edition, using Mint's own Cinnamon desktop.</td>
+                </tr>
+                <tr>
+                  <th scope="row">MATE Edition</th>
+                  <td>Uses MATE for a familiar, traditional desktop layout.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Xfce Edition</th>
+                  <td>Uses Xfce for a lighter desktop that needs fewer resources.</td>
+                </tr>
+                <tr>
+                  <th scope="row">LMDE</th>
+                  <td>Linux Mint Debian Edition, built on Debian instead of Ubuntu.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>Debian: steady and conservative</h2>
+          <p>Debian is a long-running community distribution known for careful releases. Its stable branch favours reliability over having the newest version of every program. That makes it a strong choice for a machine that must keep working predictably.</p>
+          <p>Debian is also the base for many other distributions, including Ubuntu. If you want to understand where a lot of Linux packaging practice comes from, Debian is a useful reference.</p>
+          <div class="table-wrap">
+            <table class="compare-table">
+              <caption>Well-known Debian-based systems</caption>
+              <thead>
+                <tr>
+                  <th scope="col">System</th>
+                  <th scope="col">What it offers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Raspberry Pi OS</th>
+                  <td>A Debian-based system made for Raspberry Pi boards.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Kali Linux</th>
+                  <td>A Debian-based toolkit for security testing and digital forensics.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Parrot OS</th>
+                  <td>Focuses on security, privacy and development tools.</td>
+                </tr>
+                <tr>
+                  <th scope="row">MX Linux</th>
+                  <td>A Debian-based desktop using Xfce or KDE Plasma.</td>
+                </tr>
+                <tr>
+                  <th scope="row">antiX</th>
+                  <td>A lightweight Debian-based option for older computers.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>Fedora: current software, open process</h2>
+          <p>Fedora is a community-led distribution with a relatively short release cycle, so recent software reaches users regularly. It is known for a strong desktop experience and for developing ideas that later appear in other distributions.</p>
+          <p>Fedora uses RPM packages and the DNF package manager, which is different from the APT tools used by Debian, Ubuntu and Mint. The ideas of repositories and dependencies are still the same.</p>
+          <div class="table-wrap">
+            <table class="compare-table">
+              <caption>Fedora editions and what they target</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Edition</th>
+                  <th scope="col">What it offers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Fedora Workstation</th>
+                  <td>A GNOME desktop for general use and software development.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fedora KDE Plasma Desktop</th>
+                  <td>Uses KDE Plasma instead of GNOME.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fedora Server</th>
+                  <td>An edition intended for services and server applications.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fedora Silverblue</th>
+                  <td>An immutable desktop with atomic updates and containerised applications.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article>
+          <h2>Arch Linux: build it yourself</h2>
+          <p>Arch Linux starts small and expects you to choose and configure the pieces you want. It uses a rolling release model, so software arrives continuously instead of in large periodic upgrades. The Arch Wiki is a well-known learning resource.</p>
+          <p>Arch is not the easiest first install, but it teaches how a Linux system fits together. Choose it when learning by configuration is the goal, not when you need a machine working in ten minutes.</p>
+          <div class="table-wrap">
+            <table class="compare-table">
+              <caption>Distributions based on Arch Linux</caption>
+              <thead>
+                <tr>
+                  <th scope="col">System</th>
+                  <th scope="col">What it offers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Manjaro</th>
+                  <td>An Arch-based system with its own installer and simpler setup.</td>
+                </tr>
+                <tr>
+                  <th scope="row">EndeavourOS</th>
+                  <td>Provides an installer and leaves a close-to-vanilla Arch system.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Garuda Linux</th>
+                  <td>An Arch-based system with gaming and performance-oriented defaults.</td>
+                </tr>
+                <tr>
+                  <th scope="row">BlackArch</th>
+                  <td>An Arch-based collection of security testing tools.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </article>
 
         <article>
@@ -164,6 +329,7 @@
           <ul>
             <li><strong>New to Linux and want help:</strong> start with Ubuntu or Linux Mint.</li>
             <li><strong>Want a stable base and do not need the newest packages:</strong> consider Debian.</li>
+            <li><strong>Want current software and an open development process:</strong> consider Fedora.</li>
             <li><strong>Want to learn by building and configuring:</strong> consider Arch Linux, but expect to read documentation.</li>
             <li><strong>Have older hardware:</strong> look for a lightweight desktop edition rather than assuming one distro fits every machine.</li>
           </ul>
@@ -173,15 +339,32 @@
       </div>
     </section>
 
-    <section class="page-section section--lessons" aria-labelledby="distros-next-title">
+    <section class="page-section section--next" aria-labelledby="distros-next-title">
       <div class="container">
         <div class="section__header">
-          <p class="eyebrow">Continue the path</p>
-          <h2 id="distros-next-title">Next useful lesson</h2>
+          <p class="eyebrow">Next lesson</p>
+          <h2 id="distros-next-title">Choose a route and install it</h2>
+          <p class="section__lede">The course continues from Linux to distributions to installation, then into the terminal, packages, Bash, practice and quests.</p>
         </div>
-        <div class="page-actions">
-          <a class="btn btn--primary" href="installation.html">Plan an installation <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-          <a class="btn btn--secondary" href="package-manager.html">Understand package managers</a>
+        <div class="next-grid">
+          <a class="next-card next-card--feature" href="installation.html">
+            <span class="next-card__kicker">Next lesson &middot; 03</span>
+            <h3>Plan an installation</h3>
+            <p>Prepare a machine, read each installer screen and understand disk choices before changing anything.</p>
+            <span class="next-card__cta">Continue the route <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="next-card" href="package-manager.html">
+            <span class="next-card__kicker">Look ahead</span>
+            <h3>Understand package managers</h3>
+            <p>See why Ubuntu and Mint use APT while Fedora uses DNF and Arch uses pacman.</p>
+            <span class="next-card__cta">Open lesson <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="next-card" href="linux.html">
+            <span class="next-card__kicker">Previous lesson</span>
+            <h3>Revisit what Linux is</h3>
+            <p>Go back to kernels, GNU tools and the idea behind a distribution.</p>
+            <span class="next-card__cta">Review lesson <span aria-hidden="true">&rarr;</span></span>
+          </a>
         </div>
       </div>
     </section>
