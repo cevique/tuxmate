@@ -108,6 +108,7 @@ If you've contributed to this project, add your name below through a pull reques
 
 - Abdullah Sinan (@cevique)
 - Muhammad Abdul Rehman (@AbdulRehman387)
+- Syeda Anfal (@anfalcodes)
 
 ## Contributors
 
