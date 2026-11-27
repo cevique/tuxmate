@@ -13,7 +13,7 @@ Built for the **Introduction to ICT** lab semester project by **Battler, Parri a
 - **Quests and badges** with local progress and five unlockable badge icons.
 - **Light and dark themes** with a header toggle and a `Ctrl+Shift+D` keyboard shortcut. The choice persists across pages.
 - **Local search**, mobile navigation, skip links, labelled controls and visible focus styles.
-- **Contact form** powered by FormSubmit on the About page.
+- **Contact form** powered by FormSubmit on the About page, with vanilla JavaScript validation.
 - **No accounts, no backend, no tracking and no build step.**
 
 ## Getting started
