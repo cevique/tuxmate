@@ -5,6 +5,7 @@
   var storageKey = "tuxmate-theme";
   var windowMarker = "tuxmate-theme=";
   var meta = document.getElementById("theme-color");
+  var currentTheme = "dark";
 
   function readLocal() {
     try {
@@ -80,8 +81,17 @@
     }
   }
 
-  function readTheme() {
-    return readLocal() || readWindowName() || readCookie() || "dark";
+  function readUrlTheme() {
+    try {
+      var match = /(?:^|[?&])theme=(light|dark)(?:[&#]|$)/.exec(window.location.search || "");
+      return match ? match[1] : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function readInitialTheme() {
+    return readUrlTheme() || readLocal() || readWindowName() || readCookie() || "dark";
   }
 
   function saveTheme(theme) {
@@ -91,6 +101,7 @@
   }
 
   function applyTheme(theme) {
+    currentTheme = theme;
     root.setAttribute("data-theme", theme);
 
     if (meta) {
@@ -108,16 +119,70 @@
     }
   }
 
-  function toggleTheme() {
-    var nextTheme = readTheme() === "light" ? "dark" : "light";
-    applyTheme(nextTheme);
-    saveTheme(nextTheme);
+  function cleanQuery(query, theme) {
+    var parts = query ? query.split("&").filter(function (part) {
+      return part.indexOf("theme=") !== 0;
+    }) : [];
+
+    parts.push("theme=" + theme);
+    return parts.join("&");
   }
 
-  applyTheme(readTheme());
+  function updateUrlTheme(theme) {
+    try {
+      if (!window.history || typeof window.history.replaceState !== "function") {
+        return;
+      }
+
+      var href = window.location.href || "";
+      var hashIndex = href.indexOf("#");
+      var hash = hashIndex !== -1 ? href.slice(hashIndex) : "";
+      var base = hashIndex !== -1 ? href.slice(0, hashIndex) : href;
+      var queryIndex = base.indexOf("?");
+      var path = queryIndex !== -1 ? base.slice(0, queryIndex) : base;
+      var query = queryIndex !== -1 ? base.slice(queryIndex + 1) : "";
+
+      window.history.replaceState(null, "", path + "?" + cleanQuery(query, theme) + hash);
+    } catch (error) {
+      return;
+    }
+  }
+
+  function withThemeParam(href) {
+    var hashIndex = href.indexOf("#");
+    var hash = hashIndex !== -1 ? href.slice(hashIndex) : "";
+    var base = hashIndex !== -1 ? href.slice(0, hashIndex) : href;
+    var queryIndex = base.indexOf("?");
+    var path = queryIndex !== -1 ? base.slice(0, queryIndex) : base;
+    var query = queryIndex !== -1 ? base.slice(queryIndex + 1) : "";
+
+    return path + "?" + cleanQuery(query, currentTheme) + hash;
+  }
+
+  function toggleTheme() {
+    var nextTheme = currentTheme === "light" ? "dark" : "light";
+    applyTheme(nextTheme);
+    saveTheme(nextTheme);
+    updateUrlTheme(nextTheme);
+  }
+
+  function syncFromUrl() {
+    var fromUrl = readUrlTheme();
+
+    if (fromUrl && fromUrl !== currentTheme) {
+      applyTheme(fromUrl);
+      saveTheme(fromUrl);
+      return;
+    }
+
+    applyTheme(currentTheme);
+  }
+
+  applyTheme(readInitialTheme());
+  saveTheme(currentTheme);
 
   document.addEventListener("DOMContentLoaded", function () {
-    applyTheme(readTheme());
+    applyTheme(currentTheme);
 
     var button = document.getElementById("theme-toggle");
 
@@ -126,9 +191,8 @@
     }
   });
 
-  window.addEventListener("pageshow", function () {
-    applyTheme(readTheme());
-  });
+  window.addEventListener("pageshow", syncFromUrl);
+  window.addEventListener("popstate", syncFromUrl);
 
   window.addEventListener("storage", function (event) {
     if (event.key === storageKey && (event.newValue === "light" || event.newValue === "dark")) {
@@ -141,5 +205,34 @@
       event.preventDefault();
       toggleTheme();
     }
+  });
+
+  document.addEventListener("click", function (event) {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      !event.target ||
+      typeof event.target.closest !== "function"
+    ) {
+      return;
+    }
+
+    var link = event.target.closest("a[href]");
+
+    if (!link) {
+      return;
+    }
+
+    var href = link.getAttribute("href");
+
+    if (!href || href.charAt(0) === "#" || /^(?:https?:|mailto:|tel:|javascript:|data:)/i.test(href)) {
+      return;
+    }
+
+    link.setAttribute("href", withThemeParam(href));
   });
 })();
