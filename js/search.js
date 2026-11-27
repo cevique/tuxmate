@@ -40,9 +40,9 @@
     },
     {
       title: "Linux distributions",
-      description: "Compare Ubuntu, Debian, Linux Mint and Arch Linux and find a beginner-friendly starting point.",
+      description: "Compare Ubuntu, Linux Mint, Debian, Fedora and Arch Linux, their subflavours and package tools.",
       url: "distros.html",
-      keywords: "distros distributions ubuntu debian mint arch beginner compare"
+      keywords: "distros distributions ubuntu mint debian fedora arch beginner compare flavours kali raspberry parrot"
     },
     {
       title: "Installation guide",

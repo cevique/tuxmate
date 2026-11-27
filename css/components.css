@@ -1309,3 +1309,125 @@ a.lesson-card:hover h3 {
   color: var(--color-text-muted);
   font-size: 0.78rem;
 }
+
+/* Shared "Next lesson" step used at the end of every lesson page. */
+.section--next {
+  position: relative;
+  border-block: 3px solid var(--color-gold);
+  background:
+    linear-gradient(135deg, rgba(var(--color-gold-rgb), 0.16), rgba(var(--color-gold-rgb), 0.04)),
+    var(--color-bg-soft);
+}
+
+.section--next::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    linear-gradient(90deg, rgba(var(--color-gold-rgb), 0.1) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(var(--color-gold-rgb), 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.section--next > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.next-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-5);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  color: var(--color-text);
+  text-decoration: none;
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.next-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 6px 8px 0 rgba(0, 0, 0, 0.24);
+}
+
+.next-card__kicker {
+  display: block;
+  margin-bottom: var(--space-3);
+  color: var(--color-yellow);
+  font-family: var(--font-pixel);
+  font-size: 0.62rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.next-card h3 {
+  margin-bottom: var(--space-2);
+  color: var(--color-heading);
+  font-size: var(--text-lg);
+  line-height: 1.3;
+}
+
+.next-card p {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.next-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: var(--space-4);
+  color: var(--color-yellow);
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.next-card__cta span {
+  transition: transform 120ms var(--ease-pixel);
+}
+
+.next-card:hover .next-card__cta span {
+  transform: translateX(3px);
+}
+
+.next-card--feature {
+  border-color: var(--color-gold-deep);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 5px, rgba(6, 11, 20, 0.05) 5px 6px),
+    linear-gradient(150deg, var(--color-gold) 0%, var(--color-gold-strong) 100%);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.28);
+  color: var(--color-ink);
+}
+
+.next-card--feature .next-card__kicker,
+.next-card--feature h3,
+.next-card--feature p,
+.next-card--feature .next-card__cta {
+  color: var(--color-ink);
+}
+
+.next-card--feature .next-card__kicker {
+  opacity: 0.78;
+}
+
+.next-card--feature:hover {
+  border-color: var(--color-gold-strong);
+}
