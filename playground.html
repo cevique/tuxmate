@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b1220" id="theme-color">
-  <meta name="description" content="Placeholder interface for the future TuxMate Bash Playground, a safe simulated shell with a virtual filesystem.">
+  <meta name="description" content="Practise Bash-like commands in TuxMate's safe simulated shell with an isolated virtual filesystem and predictable dry runs.">
   <title>TuxMate | Bash Playground</title>
   <link rel="icon" type="image/png" href="assets/tux1-removebg-preview.png">
   <link rel="stylesheet" href="css/style.css">
@@ -14,6 +14,7 @@
   <script src="js/navigation.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/search.js" defer></script>
+  <script src="js/playground.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -69,11 +70,11 @@
   </header>
 
   <main id="main">
-    <section class="page-hero" aria-labelledby="playground-title">
+    <section class="page-hero page-hero--scene" aria-labelledby="playground-title">
       <div class="container page-hero__inner">
         <p class="eyebrow">Bash Playground</p>
         <h1 id="playground-title">A safe place to experiment.</h1>
-        <p class="page-hero__lede">This page is the interface placeholder for a future simulator. It shows how practice will work without accepting input or touching your real filesystem.</p>
+        <p class="page-hero__lede">Run a small allow-list of Bash-like commands in a browser-only simulation. A JavaScript engine translates each command into a safe action on a virtual filesystem, so nothing here touches your real computer.</p>
       </div>
     </section>
 
@@ -94,9 +95,9 @@
     <section class="page-section" aria-labelledby="simulator-title">
       <div class="container">
         <div class="section__header">
-          <p class="eyebrow">Coming soon</p>
-          <h2 id="simulator-title">The simulator layout</h2>
-          <p class="section__lede">The final playground will use a restricted command set and an isolated virtual filesystem. Unsupported commands will return a helpful error instead of being executed.</p>
+          <p class="eyebrow">Live simulation</p>
+          <h2 id="simulator-title">Try the simulated shell</h2>
+          <p class="section__lede">Type a command and the browser translates it into a safe JavaScript action on an isolated virtual filesystem. Unsupported commands return a helpful error instead of running anything.</p>
         </div>
 
         <div class="playground-layout">
@@ -104,41 +105,45 @@
             <div class="feature-panel__header">
               <div>
                 <span class="feature-panel__kicker">Virtual session</span>
-                <h3>tux@tuxmate &mdash; preview</h3>
+                <h3>tux@tuxmate &mdash; simulation</h3>
               </div>
-              <span class="chip chip--muted">Static preview</span>
+              <span class="chip chip--yellow">Safe sandbox</span>
             </div>
-            <p class="feature-panel__text">The terminal below is a drawing of the planned interface. The prompt, files and output are fixed examples for learning.</p>
+            <p class="feature-panel__text">Start with <code>pwd</code>, <code>ls</code> or <code>cd projects</code>. Use the arrow keys to repeat earlier commands.</p>
 
-            <div class="terminal" aria-label="Static preview of the future Bash Playground">
+            <div class="terminal" aria-label="Interactive simulated Bash Playground">
               <div class="terminal__bar" aria-hidden="true">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span class="terminal__title">tuxmate &mdash; bash playground</span>
               </div>
-              <div class="terminal__body">
-                <p><span class="terminal__prompt">tux@tuxmate</span>:<span class="terminal__path">~</span>$ <span class="terminal__command">pwd</span></p>
-                <p class="terminal__output">/home/tux</p>
-                <p><span class="terminal__prompt">tux@tuxmate</span>:<span class="terminal__path">~</span>$ <span class="terminal__command">ls</span></p>
-                <p class="terminal__output">notes.txt  projects  welcome.md</p>
-                <p><span class="terminal__prompt">tux@tuxmate</span>:<span class="terminal__path">~</span>$ <span class="terminal__command">cd projects</span></p>
-                <p><span class="terminal__prompt">tux@tuxmate</span>:<span class="terminal__path">~/projects</span>$ <span class="terminal__cursor" aria-hidden="true"></span></p>
-              </div>
-              <p class="terminal__note">Simulation preview &mdash; not a live shell</p>
+              <div class="terminal__body" id="terminal-output" role="log" aria-live="polite" aria-label="Simulator output"></div>
+              <form class="terminal__form" id="terminal-form">
+                <label class="terminal__prompt" for="terminal-input">tux@tuxmate:<span class="terminal__path" id="terminal-path-label">~</span>$</label>
+                <input class="terminal__input" id="terminal-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Type a simulated Bash command" placeholder="type a command">
+                <button class="terminal__run" type="submit">Run</button>
+              </form>
+              <p class="terminal__note">Simulation only &mdash; no real Bash commands are executed</p>
+            </div>
+
+            <div class="terminal-actions">
+              <button class="btn btn--secondary" type="button" id="terminal-help">Show commands</button>
+              <button class="btn btn--secondary" type="button" id="terminal-reset">Reset session</button>
+              <button class="btn btn--secondary" type="button" id="terminal-clear">Clear output</button>
             </div>
           </article>
 
           <aside class="info-panel" aria-labelledby="planned-title">
             <p class="info-panel__kicker">Design rules</p>
-            <h2 id="planned-title">How practice will work</h2>
+            <h2 id="planned-title">How the simulator stays safe</h2>
             <ul>
               <li>Commands are matched against a fixed allow-list.</li>
               <li>Files and folders exist only in a virtual tree.</li>
-              <li>Exercises have predictable starting states.</li>
+              <li>Dry runs reset to a predictable starting state.</li>
               <li>Errors explain what went wrong.</li>
             </ul>
-            <p>The simulator will never call a real shell, use <code>eval()</code> or send data anywhere.</p>
+            <p>The simulator never calls a real shell, never uses <code>eval()</code>, and never sends data anywhere.</p>
             <p><a href="practice.html">Read the practice safety overview</a></p>
           </aside>
         </div>
@@ -148,22 +153,61 @@
     <section class="page-section section--lessons" aria-labelledby="planned-commands-title">
       <div class="container">
         <div class="section__header">
-          <p class="eyebrow">Planned command set</p>
+          <p class="eyebrow">Supported command set</p>
           <h2 id="planned-commands-title">Start with these building blocks</h2>
-          <p class="section__lede">Review the lessons first, then test your understanding with the matching quest.</p>
+          <p class="section__lede">Each command is translated into a JavaScript function that only touches the virtual tree. Anything outside this list produces an error message.</p>
         </div>
 
         <ul class="command-list">
           <li><strong>pwd</strong><span>Print the current location in the virtual filesystem.</span></li>
-          <li><strong>ls</strong><span>List the files and directories at the current location.</span></li>
-          <li><strong>cd</strong><span>Move between virtual directories using safe paths.</span></li>
+          <li><strong>ls</strong><span>List files and folders. Add <code>-a</code> for hidden names or <code>-l</code> for types.</span></li>
+          <li><strong>cd</strong><span>Move between virtual directories using safe paths such as <code>cd ..</code>.</span></li>
           <li><strong>cat</strong><span>Read a text file from the virtual tree.</span></li>
           <li><strong>mkdir / touch</strong><span>Create a practice directory or empty file.</span></li>
+          <li><strong>echo</strong><span>Print your own text back to the terminal.</span></li>
+          <li><strong>help / clear / reset</strong><span>Show commands, clear the output or restore the starting tree.</span></li>
         </ul>
 
         <div class="page-actions">
           <a class="btn btn--primary" href="terminal.html">Review terminal basics <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
           <a class="btn btn--secondary" href="quests.html">Go to quests</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" aria-labelledby="dry-run-title">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">Guided dry runs</p>
+          <h2 id="dry-run-title">Three predictable practice runs</h2>
+          <p class="section__lede">Each run restores the same starting files. Follow the goal in the terminal and the result is identical every time.</p>
+        </div>
+
+        <div class="exercise-grid">
+          <article class="exercise-card" data-exercise-card="print-location">
+            <p class="exercise-card__kicker">Dry run 01</p>
+            <h3>Print your location</h3>
+            <p>Goal: use <code>pwd</code> in the home folder.</p>
+            <p class="exercise-card__expected">Expected: <code>/home/tux</code></p>
+            <button class="btn btn--secondary" type="button" data-exercise="print-location">Start run</button>
+            <p class="exercise-card__status" data-exercise-status>Not started</p>
+          </article>
+          <article class="exercise-card" data-exercise-card="list-files">
+            <p class="exercise-card__kicker">Dry run 02</p>
+            <h3>List the home folder</h3>
+            <p>Goal: use <code>ls</code> to see the three items.</p>
+            <p class="exercise-card__expected">Expected: <code>notes.txt  projects  welcome.md</code></p>
+            <button class="btn btn--secondary" type="button" data-exercise="list-files">Start run</button>
+            <p class="exercise-card__status" data-exercise-status>Not started</p>
+          </article>
+          <article class="exercise-card" data-exercise-card="read-note">
+            <p class="exercise-card__kicker">Dry run 03</p>
+            <h3>Read a saved note</h3>
+            <p>Goal: use <code>cat notes.txt</code>.</p>
+            <p class="exercise-card__expected">Expected: two fixed lines of text.</p>
+            <button class="btn btn--secondary" type="button" data-exercise="read-note">Start run</button>
+            <p class="exercise-card__status" data-exercise-status>Not started</p>
+          </article>
         </div>
       </div>
     </section>
@@ -185,7 +229,7 @@
           <a class="next-card" href="terminal.html">
             <span class="next-card__kicker">Review</span>
             <h3>Review terminal basics</h3>
-            <p>Re-read paths and navigation commands before you try the planned simulator.</p>
+            <p>Re-read paths and navigation commands before you try the simulator.</p>
             <span class="next-card__cta">Review lesson <span aria-hidden="true">&rarr;</span></span>
           </a>
           <a class="next-card" href="practice.html">
@@ -227,6 +271,15 @@
             <li><span>Course</span> Introduction to ICT</li>
             <li><span>Team</span> Battler, Parri &amp; Mani</li>
             <li><span>Built with</span> HTML, CSS &amp; vanilla JS</li>
+          </ul>
+        </div>
+
+        <div class="footer__developers">
+          <h2 class="footer__heading">Developers</h2>
+          <ul class="footer__dev-list">
+            <li><a href="https://github.com/cevqiue" target="_blank" rel="noopener noreferrer">Battler <span aria-hidden="true">&nearr;</span></a></li>
+            <li><a href="https://github.com/cevqiue" target="_blank" rel="noopener noreferrer">Parri <span aria-hidden="true">&nearr;</span></a></li>
+            <li><a href="https://github.com/cevqiue" target="_blank" rel="noopener noreferrer">Mani <span aria-hidden="true">&nearr;</span></a></li>
           </ul>
         </div>
       </div>

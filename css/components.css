@@ -729,6 +729,142 @@
   text-transform: uppercase;
 }
 
+#terminal-output {
+  min-height: 12rem;
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.terminal__output--error {
+  color: #ff8a9a;
+}
+
+.terminal__output--info {
+  color: #f5c33b;
+}
+
+.terminal__form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem var(--space-4);
+  border-top: 2px solid var(--color-border);
+  background-color: var(--color-ink);
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+}
+
+.terminal__form .terminal__prompt {
+  flex: 0 0 auto;
+}
+
+.terminal__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: #f4f7fb;
+  font: inherit;
+  outline: none;
+}
+
+.terminal__input::placeholder {
+  color: #7f91ad;
+}
+
+.terminal__run {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.6rem;
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-xs);
+  background-color: transparent;
+  color: #f5c33b;
+  font: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.terminal__run:hover {
+  background-color: rgba(245, 195, 59, 0.16);
+}
+
+.terminal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.terminal-actions .btn {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.68rem;
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.exercise-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.exercise-card.is-done {
+  border-color: var(--color-gold);
+  background-color: var(--color-surface-2);
+}
+
+.exercise-card__kicker {
+  color: var(--color-yellow);
+  font-family: var(--font-pixel);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.exercise-card h3 {
+  margin-bottom: 0;
+  font-size: var(--text-lg);
+}
+
+.exercise-card p {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.exercise-card__expected code {
+  word-break: break-word;
+}
+
+.exercise-card .btn {
+  align-self: flex-start;
+  margin-top: var(--space-3);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.68rem;
+}
+
+.exercise-card .exercise-card__status {
+  color: var(--color-text-dim);
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.exercise-card.is-done .exercise-card__status {
+  color: var(--color-yellow);
+}
+
 .quest-list {
   display: grid;
   gap: var(--space-3);
@@ -1289,6 +1425,40 @@ a.lesson-card:hover h3 {
   background-color: rgba(var(--color-gold-rgb), 0.1);
 }
 
+.badge__icon {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 auto var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.22);
+  color: var(--color-text-dim);
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition);
+}
+
+.badge__icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  shape-rendering: crispEdges;
+}
+
+.badge.is-unlocked .badge__icon {
+  border-color: var(--color-gold);
+  background-color: rgba(var(--color-gold-rgb), 0.16);
+  color: var(--color-yellow);
+  filter: none;
+  opacity: 1;
+}
+
 .badge strong {
   display: block;
   color: var(--color-text-dim);
@@ -1308,6 +1478,128 @@ a.lesson-card:hover h3 {
   margin-top: var(--space-2);
   color: var(--color-text-muted);
   font-size: 0.78rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.contact-form {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.form-field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.form-field label {
+  color: var(--color-heading);
+  font-family: var(--font-pixel);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-soft);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--color-text-dim);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--color-gold);
+}
+
+.contact-form .btn {
+  justify-self: start;
+}
+
+.contact-form__note {
+  margin: 0;
+  color: var(--color-text-dim);
+  font-size: var(--text-xs);
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.review-card:nth-child(even) {
+  background-color: var(--color-surface-2);
+}
+
+.review-card__mark {
+  color: var(--color-gold);
+  font-family: var(--font-pixel);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.review-card > p {
+  margin: var(--space-3) 0 var(--space-4);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+.review-card__author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin: auto 0 0;
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+}
+
+.review-card__author strong {
+  color: var(--color-yellow);
+  font-family: var(--font-pixel);
+  font-size: 0.72rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.review-card__author span {
+  color: var(--color-text-dim);
+  font-family: var(--font-pixel);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* Shared "Next lesson" step used at the end of every lesson page. */

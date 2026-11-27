@@ -11,16 +11,13 @@
     grid-template-columns: 1.4fr 1fr;
   }
 
-  .footer__project {
-    grid-column: 1 / -1;
-  }
-
   .lesson-columns,
   .playground-layout {
     grid-template-columns: 1fr;
   }
 
-  .badge-grid {
+  .badge-grid,
+  .review-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -39,11 +36,16 @@
     border-left: 0;
   }
 
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
   .lesson-grid,
   .feature-grid,
   .panel-grid,
   .dashboard-grid,
-  .next-grid {
+  .next-grid,
+  .exercise-grid {
     grid-template-columns: 1fr;
   }
 
@@ -198,7 +200,8 @@
     font-size: clamp(1.8rem, 8vw, 2.5rem);
   }
 
-  .badge-grid {
+  .badge-grid,
+  .review-grid {
     grid-template-columns: 1fr;
   }
 
@@ -208,6 +211,15 @@
 
   .terminal__body {
     font-size: 0.7rem;
+  }
+
+  .terminal__form {
+    gap: 0.35rem;
+    font-size: 0.7rem;
+  }
+
+  .terminal__run {
+    padding: 0.2rem 0.45rem;
   }
 
   .terminal__title {

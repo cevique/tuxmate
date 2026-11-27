@@ -22,7 +22,7 @@
     },
     {
       title: "Bash playground",
-      description: "See the planned safe simulator interface and the small command set it will support.",
+      description: "Try the safe simulator and the small command set it supports.",
       url: "playground.html",
       keywords: "practice playground shell simulator terminal commands sandbox safe"
     },
