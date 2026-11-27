@@ -107,7 +107,7 @@ If you've contributed to this project, add your name below through a pull reques
 <!-- Add your name alphabetically -->
 
 - Abdullah Sinan (@cevique)
-- Muhammad Abdul Rehman (AbdulRehman387)
+- Muhammad Abdul Rehman (@AbdulRehman387)
 
 ## Contributors
 
