@@ -573,5 +573,12 @@
     });
   }
 
+  Array.prototype.forEach.call(document.querySelectorAll("[data-command]"), function (button) {
+    button.addEventListener("click", function () {
+      input.value = button.getAttribute("data-command") || "";
+      input.focus();
+    });
+  });
+
   resetSession();
 })();

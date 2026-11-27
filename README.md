@@ -89,12 +89,6 @@ tuxmate/
 
 All paths are relative and all assets are local.
 
-## Before publishing
-
-- Replace `developer@example.com` in the FormSubmit `action` on `about.html` with the real developer inbox. The first submission activates the address with FormSubmit.
-- Replace the sample review quotes on `about.html` with real, permissioned feedback.
-- Confirm that the footer GitHub links point to the intended developer profiles.
-
 ## Development guidelines
 
 - Keep markup to HTML5, styling to CSS3 and behaviour to vanilla JavaScript.
