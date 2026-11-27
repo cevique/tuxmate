@@ -98,6 +98,47 @@ All paths are relative and all assets are local.
 - Never execute real shell commands or evaluate student input.
 - Test every page after making changes.
 
+##  Community Contributors
+
+We appreciate everyone who contributes to improving TuxMate!
+
+If you've contributed to this project, add your name below through a pull request.
+
+<!-- Add your name alphabetically -->
+
+- Abdullah Sinan (@cevique)
+
+## Contributors
+
+Thanks to everyone who helped bring TuxMate to life!
+
+<p align="center">
+  <a href="https://github.com/cevique">
+    <img src="https://github.com/cevique.png"
+         width="100px" alt="cevique"/>
+  </a>
+  <a href="https://github.com/anfalcodes">
+    <img src="https://github.com/anfalcodes.png"
+         width="100px" alt="anfalcodes"/>
+  </a>
+  <a href="https://github.com/AbdulRehman387">
+    <img src="https://github.com/AbdulRehman387.png"
+         width="100px" alt="AbdulRehman387"/>
+  </a>
+</p>
+
+<h2 align="center">⚔️ THE FOUNDING PARTY ⚔️</h2>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/✦-BATTLER-FFD700?style=for-the-badge&labelColor=151515" />
+  <img src="https://img.shields.io/badge/✦-PARRI-FF69B4?style=for-the-badge&labelColor=151515" />
+  <img src="https://img.shields.io/badge/✦-MANI-32CD32?style=for-the-badge&labelColor=151515" />
+</p>
+
+<p align="center">
+  <i>Three developers. One adventure. Endless commands.</i>
+</p>
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for the full text.
